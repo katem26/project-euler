@@ -35,6 +35,10 @@ def solution():
         hexagon=hexagonal(hexagon_index)
         hexagon_index+=1
 
+print(solution())
+
+
+
 def is_triangle(num):
     # reversing the formula
     a=num*2 # n(n+1)
@@ -56,8 +60,5 @@ def is_hexagonal(num):
 
 
 
-def main():
-    print(solution())
 
-if __name__ == "__main__":
-    main()
+
