@@ -9,17 +9,26 @@
 # The sum on the diagonals is 101
 # what is the sum on the diagonals of a 1001 by 1001 spiral?
 
-def calcDiag(gridSize):
-    answer = 1
-    prev = 1
-    for j in range(2,gridSize,2):
-        for i in range(0,4): # for each corner (1st loop is 3,5,7,9, second loop is 13,17,21,25...)
-            num = prev+j
-            answer+=num
-            prev=num
+""" each smaller square in the center e.g.
+7 8 9
+6 1 2
+5 4 3
+has four corners (3, 5, 7, and 9 in this case)
+the difference between each corner increases by two each time
+(3x3 square has 3,5,7,9 (difference of two), 4x4 square has 13,17,21,25 (difference of four))"""
 
-    return answer
+def calculate_diagonal_sum(gridSize):
+    total = 1
+    last_number_added = 1
 
-print(calcDiag(1001))
+    for corner_difference in range(2,gridSize,2):
+        for corner in range(0,4):
+            current_number = last_number_added + corner_difference
+            total += current_number
+            last_number_added = current_number
+
+    return total
+
+print(calculate_diagonal_sum(1001))
 
 
